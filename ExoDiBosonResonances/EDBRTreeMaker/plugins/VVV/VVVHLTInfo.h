@@ -247,7 +247,8 @@ void VVVTreeMaker::beginRun(const edm::Run& iRun, const edm::EventSetup& iSetup)
 void
 VVVTreeMaker::HLTStore( edm::Event const & iEvent ){
 
-    Handle<TriggerResults> trigRes;
+//    Handle<TriggerResults> trigRes;
+    edm::Handle<edm::TriggerResults> trigRes;
     iEvent.getByToken(hltToken_, trigRes);
 
 
