@@ -139,10 +139,10 @@ private:
     double genw_q1_pt[5],genw_q1_eta[5],genw_q1_phi[5],genw_q1_e[5],genw_q1_pdg[5];
     double genw_q2_pt[5],genw_q2_eta[5],genw_q2_phi[5],genw_q2_e[5],genw_q2_pdg[5];
     double ptgenzl[5],etagenzl[5],phigenzl[5],massgenzl[5],taggenzl[5];
-    double ptgengl[10],etagengl[10],phigengl[10],egengl[10];
+
     double ptgenwf[5],etagenwf[5],phigenwf[5],massgenwf[5];
     double ptgenzf[5],etagenzf[5],phigenzf[5],massgenzf[5];
-    double ptgengf[10],etagengf[10],phigengf[10],egengf[10];
+
     double gent_b_pt,gent_b_phi,gent_b_eta,gent_b_mass;
     double genantit_b_pt,genantit_b_phi,genantit_b_eta,genantit_b_mass;
     double gent_w_pt,gent_w_phi,gent_w_eta,gent_w_mass;
@@ -151,19 +151,7 @@ private:
     double genantit_w_q1_pt,genantit_w_q1_phi,genantit_w_q1_eta,genantit_w_q1_e,genantit_w_q1_pdg;
     double gent_w_q2_pt,gent_w_q2_phi,gent_w_q2_eta,gent_w_q2_e,gent_w_q2_pdg;
     double genantit_w_q2_pt,genantit_w_q2_phi,genantit_w_q2_eta,genantit_w_q2_e,genantit_w_q2_pdg;
-    double ptgenq1l[5],etagenq1l[5],phigenq1l[5],egenq1l[5];
-    double ptgenq1f[5],etagenq1f[5],phigenq1f[5],egenq1f[5];
-    double ptgenq2l[5],etagenq2l[5],phigenq2l[5],egenq2l[5];
-    double ptgenq2f[5],etagenq2f[5],phigenq2f[5],egenq2f[5];
-    double ptgenq3l[5],etagenq3l[5],phigenq3l[5],egenq3l[5];
-    double ptgenq3f[5],etagenq3f[5],phigenq3f[5],egenq3f[5];
-    double ptgenq4l[5],etagenq4l[5],phigenq4l[5],egenq4l[5];
-    double ptgenq4f[5],etagenq4f[5],phigenq4f[5],egenq4f[5];
-    double ptgenq5l[5],etagenq5l[5],phigenq5l[5],egenq5l[5];
-    double ptgenq5f[5],etagenq5f[5],phigenq5f[5],egenq5f[5];
-    double mothergenq1f[5],mothergenq2f[5],mothergenq3f[5],mothergenq4f[5],mothergenq5f[5];
-    
-    double gent_w_tag,genantit_w_tag,mothergengf[10],mmothergengf[10],mmothergenq1f[5],mmothergenq2f[5],mmothergenq3f[5],mmothergenq4f[5],mmothergenq5f[5];
+
     
     double vbfeta, vbfmjj;
     int      vbftag;
@@ -198,48 +186,23 @@ private:
     double  npT, npIT;
     int     nBX;
     //Gen Level
-    double gen_gra_m, gen_gra_pt, gen_gra_eta,gen_gra_phi;
-    double gen_rad_m, gen_rad_pt, gen_rad_eta,gen_rad_phi;
-    double gen_ele_pt, gen_ele_eta, gen_ele_phi, gen_ele_e;
-    double gen_tau_pt, gen_tau_eta, gen_tau_phi, gen_tau_e;
-    double gen_tau_pt_2, gen_tau_eta_2, gen_tau_phi_2, gen_tau_e_2;
-    double gen_tau_pt_3, gen_tau_eta_3, gen_tau_phi_3, gen_tau_e_3;
 
-    double pttau[4],etatau[4],phitau[4],etau[4],pdgidtau[4];
-    double pttau_2[4],etatau_2[4],phitau_2[4],etau_2[4],pdgidtau_2[4];
-    double pttau_3[4],etatau_3[4],phitau_3[4],etau_3[4],pdgidtau_3[4];
+
+
+
+
    
-    double ptq[3],etaq[3],phiq[3],eq[3],pdgidq[3];
-    double ptq_2[3],etaq_2[3],phiq_2[3],eq_2[3],pdgidq_2[3];
-    double ptq_3[3],etaq_3[3],phiq_3[3],eq_3[3],pdgidq_3[3];
 
-    double gen_nele_pt, gen_nele_eta, gen_nele_phi, gen_nele_e;
-    double gen_nele_pt_2, gen_nele_eta_2, gen_nele_phi_2, gen_nele_e_2;
-    double gen_nmu_pt, gen_nmu_eta, gen_nmu_phi, gen_nmu_e;
-    double gen_nmu_pt_2, gen_nmu_eta_2, gen_nmu_phi_2, gen_nmu_e_2;
-    double gen_nele_pt_3, gen_nele_eta_3, gen_nele_phi_3, gen_nele_e_3;
-    double gen_nmu_pt_3, gen_nmu_eta_3, gen_nmu_phi_3, gen_nmu_e_3;
-    double gen_ntau_pt, gen_ntau_eta, gen_ntau_phi, gen_ntau_e;
-    double gen_ntau_pt_2, gen_ntau_eta_2, gen_ntau_phi_2, gen_ntau_e_2;
-    double gen_ntau_pt_3, gen_ntau_eta_3, gen_ntau_phi_3, gen_ntau_e_3;
 
-    double gen_mu_pt, gen_mu_eta, gen_mu_phi, gen_mu_e;
+
     double genmatch_ele_pt, genmatch_ele_eta, genmatch_ele_phi, genmatch_ele_e, genmatch_ele_dr;
     double genmatch_mu_pt, genmatch_mu_eta, genmatch_mu_phi, genmatch_mu_e, genmatch_mu_dr;
-    double gen_ele_pt_2, gen_ele_eta_2, gen_ele_phi_2, gen_ele_e_2;
-    double gen_mu_pt_2, gen_mu_eta_2, gen_mu_phi_2, gen_mu_e_2;
-    double gen_ele_pt_3, gen_ele_eta_3, gen_ele_phi_3, gen_ele_e_3;
-    double gen_mu_pt_3, gen_mu_eta_3, gen_mu_phi_3, gen_mu_e_3;
+
     double gentop_pt, gentop_eta, gentop_phi, gentop_mass;
     double genantitop_pt, genantitop_eta, genantitop_phi, genantitop_mass;
-    double ptGenVlep, etaGenVlep, phiGenVlep, massGenVlep;
-    double ptGenVhad, etaGenVhad, phiGenVhad, massGenVhad;
-    double ptGenVhad_2, etaGenVhad_2, phiGenVhad_2, massGenVhad_2;
-    double ptGenVhad_3, etaGenVhad_3, phiGenVhad_3, massGenVhad_3;
-    double ptGenV_2, etaGenV_2, phiGenV_2, massGenV_2;
-    double ptGenV_3, etaGenV_3, phiGenV_3, massGenV_3;
-    int status_1,status_2, status_3;
-    
+
+
+
     bool IDLoose, IDTight,IDLoose_2, IDTight_2,IDLoose_3, IDTight_3, isHighPt, isHEEP;
     double muchaiso, muneuiso, muphoiso, muPU, muisolation;
     double iso, isoCut, et, trackIso;
@@ -556,10 +519,7 @@ VVVTreeMaker::VVVTreeMaker(const edm::ParameterSet& iConfig):
         outTree_->Branch("phigenzl"           ,phigenzl       ,"phigenzl[5]/D"          );
         outTree_->Branch("massgenzl"           ,massgenzl         ,"massgenzl[5]/D"          );
         outTree_->Branch("taggenzl"           ,taggenzl         ,"taggenzl[5]/D"          );
-        outTree_->Branch("ptgengl"           ,ptgengl         ,"ptgengl[10]/D"          );
-        outTree_->Branch("etagengl"           ,etagengl         ,"etagengl[10]/D"          );
-        outTree_->Branch("phigengl"           ,phigengl       ,"phigengl[10]/D"          );
-        outTree_->Branch("egengl"           ,egengl         ,"egengl[10]/D"          );
+
         outTree_->Branch("ptgenwf"           ,ptgenwf         ,"ptgenwf[5]/D"          );
         outTree_->Branch("etagenwf"           ,etagenwf         ,"etagenwf[5]/D"          );
         outTree_->Branch("phigenwf"           ,phigenwf       ,"phigenwf[5]/D"          );
@@ -568,10 +528,7 @@ VVVTreeMaker::VVVTreeMaker(const edm::ParameterSet& iConfig):
         outTree_->Branch("etagenzf"           ,etagenzf         ,"etagenzf[5]/D"          );
         outTree_->Branch("phigenzf"           ,phigenzf       ,"phigenzf[5]/D"          );
         outTree_->Branch("massgenzf"           ,massgenzf         ,"massgenzf[5]/D"          );
-        outTree_->Branch("ptgengf"           ,ptgengf         ,"ptgengf[10]/D"          );
-        outTree_->Branch("etagengf"           ,etagengf         ,"etagengf[10]/D"          );
-        outTree_->Branch("phigengf"           ,phigengf       ,"phigengf[10]/D"          );
-        outTree_->Branch("egengf"           ,egengf         ,"egengf[10]/D"          );
+
         
         outTree_->Branch("gent_b_pt"           ,&gent_b_pt         ,"gent_b_pt/D"          );
         outTree_->Branch("gent_b_eta"           ,&gent_b_eta         ,"gent_b_eta/D"          );
@@ -612,60 +569,7 @@ VVVTreeMaker::VVVTreeMaker(const edm::ParameterSet& iConfig):
         outTree_->Branch("genantit_w_q2_e"           ,&genantit_w_q2_e         ,"gent_w_q2_e/D"          );
         outTree_->Branch("genantit_w_q2_pdg"           ,&genantit_w_q2_pdg         ,"genantit_w_q2_pdg/D"          );
 
-        outTree_->Branch("ptgenq1l"           ,ptgenq1l         ,"ptgenq1l[5]/D"          );
-        outTree_->Branch("etagenq1l"           ,etagenq1l         ,"etagenq1l[5]/D"          );
-        outTree_->Branch("phigenq1l"           ,phigenq1l       ,"phigenq1l[5]/D"          );
-        outTree_->Branch("egenq1l"           ,egenq1l         ,"egenq1l[5]/D"          );
-        outTree_->Branch("ptgenq1f"           ,ptgenq1f         ,"ptgenq1f[5]/D"          );
-        outTree_->Branch("etagenq1f"           ,etagenq1f         ,"etagenq1f[5]/D"          );
-        outTree_->Branch("phigenq1f"           ,phigenq1f       ,"phigenq1f[5]/D"          );
-        outTree_->Branch("egenq1f"           ,egenq1f         ,"egenq1f[5]/D"          );
-        outTree_->Branch("ptgenq2l"           ,ptgenq2l         ,"ptgenq2l[5]/D"          );
-        outTree_->Branch("etagenq2l"           ,etagenq2l         ,"etagenq2l[5]/D"          );
-        outTree_->Branch("phigenq2l"           ,phigenq2l       ,"phigenq2l[5]/D"          );
-        outTree_->Branch("egenq2l"           ,egenq2l         ,"egenq2l[5]/D"          );
-        outTree_->Branch("ptgenq2f"           ,ptgenq2f         ,"ptgenq2f[5]/D"          );
-        outTree_->Branch("etagenq2f"           ,etagenq2f         ,"etagenq2f[5]/D"          );
-        outTree_->Branch("phigenq2f"           ,phigenq2f       ,"phigenq2f[5]/D"          );
-        outTree_->Branch("egenq2f"           ,egenq2f         ,"egenq2f[5]/D"          );
-        outTree_->Branch("ptgenq3l"           ,ptgenq3l         ,"ptgenq3l[5]/D"          );
-        outTree_->Branch("etagenq3l"           ,etagenq3l         ,"etagenq3l[5]/D"          );
-        outTree_->Branch("phigenq3l"           ,phigenq3l       ,"phigenq3l[5]/D"          );
-        outTree_->Branch("egenq3l"           ,egenq3l         ,"egenq3l[5]/D"          );
-        outTree_->Branch("ptgenq3f"           ,ptgenq3f         ,"ptgenq3f[5]/D"          );
-        outTree_->Branch("etagenq3f"           ,etagenq3f         ,"etagenq3f[5]/D"          );
-        outTree_->Branch("phigenq3f"           ,phigenq3f       ,"phigenq3f[5]/D"          );
-        outTree_->Branch("egenq3f"           ,egenq3f         ,"egenq3f[5]/D"          );
-        outTree_->Branch("ptgenq4l"           ,ptgenq4l         ,"ptgenq4l[5]/D"          );
-        outTree_->Branch("etagenq4l"           ,etagenq4l         ,"etagenq4l[5]/D"          );
-        outTree_->Branch("phigenq4l"           ,phigenq4l       ,"phigenq4l[5]/D"          );
-        outTree_->Branch("egenq4l"           ,egenq4l         ,"egenq4l[5]/D"          );
-        outTree_->Branch("ptgenq4f"           ,ptgenq4f         ,"ptgenq4f[5]/D"          );
-        outTree_->Branch("etagenq4f"           ,etagenq4f         ,"etagenq4f[5]/D"          );
-        outTree_->Branch("phigenq4f"           ,phigenq4f       ,"phigenq4f[5]/D"          );
-        outTree_->Branch("egenq4f"           ,egenq4f         ,"egenq4f[5]/D"          );
-        outTree_->Branch("ptgenq5l"           ,ptgenq5l         ,"ptgenq5l[5]/D"          );
-        outTree_->Branch("etagenq5l"           ,etagenq5l         ,"etagenq5l[5]/D"          );
-        outTree_->Branch("phigenq5l"           ,phigenq5l       ,"phigenq5l[5]/D"          );
-        outTree_->Branch("egenq5l"           ,egenq5l         ,"egenq5l[5]/D"          );
-        outTree_->Branch("ptgenq5f"           ,ptgenq5f         ,"ptgenq5f[5]/D"          );
-        outTree_->Branch("etagenq5f"           ,etagenq5f         ,"etagenq5f[5]/D"          );
-        outTree_->Branch("phigenq5f"           ,phigenq5f       ,"phigenq5f[5]/D"          );
-        outTree_->Branch("egenq5f"           ,egenq5f         ,"egenq5f[5]/D"          );
-        outTree_->Branch("mothergenq1f"           ,mothergenq1f         ,"mothergenq1f[5]/D"          );
-        outTree_->Branch("mothergenq2f"           ,mothergenq2f         ,"mothergenq2f[5]/D"          );
-        outTree_->Branch("mothergenq3f"           ,mothergenq3f         ,"mothergenq3f[5]/D"          );
-        outTree_->Branch("mothergenq4f"           ,mothergenq4f         ,"mothergenq4f[5]/D"          );
-        outTree_->Branch("mothergenq5f"           ,mothergenq5f         ,"mothergenq5f[5]/D"          );
-        
-        outTree_->Branch("mothergengf"           ,mothergengf         ,"mothergengf[10]/D"          );
-        outTree_->Branch("mmothergengf"           ,mmothergengf         ,"mmothergengf[10]/D"          );
 
-        outTree_->Branch("mmothergenq1f"           ,mmothergenq1f         ,"mmothergenq1f[5]/D"          );
-        outTree_->Branch("mmothergenq2f"           ,mmothergenq2f         ,"mmothergenq2f[5]/D"          );
-        outTree_->Branch("mmothergenq3f"           ,mmothergenq3f         ,"mmothergenq3f[5]/D"          );
-        outTree_->Branch("mmothergenq4f"           ,mmothergenq4f         ,"mmothergenq4f[5]/D"          );
-        outTree_->Branch("mmothergenq5f"           ,mmothergenq5f         ,"mmothergenq5f[5]/D"          );
 
     }
     outTree_->Branch("run"             ,&run            ,"run/I");//
@@ -1055,127 +959,9 @@ VVVTreeMaker::VVVTreeMaker(const edm::ParameterSet& iConfig):
     
     /// Gen Level quantities
     if(RunOnMC_){
-    outTree_->Branch("pttau"        , pttau       ,"pttau[4]/D"       );
-    outTree_->Branch("etatau"        , etatau       ,"etatau[4]/D"       );
-    outTree_->Branch("phitau"        , phitau       ,"phitau[4]/D"       );
-    outTree_->Branch("etau"        , etau       ,"etau[4]/D"       );
-    outTree_->Branch("pdgidtau"        , pdgidtau       ,"pdgidtau[4]/D"       );
-    
-    outTree_->Branch("pttau_2"        , pttau_2       ,"pttau_2[4]/D"       );
-    outTree_->Branch("etatau_2"        , etatau_2       ,"etatau_2[4]/D"       );
-    outTree_->Branch("phitau_2"        , phitau_2       ,"phitau_2[4]/D"       );
-    outTree_->Branch("etau_2"        , etau_2       ,"etau_2[4]/D"       );
-    outTree_->Branch("pdgidtau_2"        , pdgidtau_2       ,"pdgidtau_2[4]/D"       );
-    
-    outTree_->Branch("pttau_3"        , pttau_3       ,"pttau_3[4]/D"       );
-    outTree_->Branch("etatau_3"        , etatau_3       ,"etatau_3[4]/D"       );
-    outTree_->Branch("phitau_3"        , phitau_3       ,"phitau_3[4]/D"       );
-    outTree_->Branch("etau_3"        , etau_3       ,"etau_3[4]/D"       );
-    outTree_->Branch("pdgidtau_3"        , pdgidtau_3       ,"pdgidtau_3[4]/D"       );
-    
-    outTree_->Branch("ptq"        , ptq       ,"ptq[3]/D"       );
-    outTree_->Branch("etaq"        , etaq       ,"etaq[3]/D"       );
-    outTree_->Branch("phiq"        , phiq       ,"phiq[3]/D"       );
-    outTree_->Branch("eq"        , eq       ,"eq[3]/D"       );
-    outTree_->Branch("pdgidq"        , pdgidq       ,"pdgidq[3]/D"       );
-    
-    outTree_->Branch("ptq_2"        , ptq_2       ,"ptq_2[3]/D"       );
-    outTree_->Branch("etaq_2"        , etaq_2       ,"etaq_2[3]/D"       );
-    outTree_->Branch("phiq_2"        , phiq_2       ,"phiq_2[3]/D"       );
-    outTree_->Branch("eq_2"        , eq_2       ,"eq_2[3]/D"       );
-    outTree_->Branch("pdgidq_2"        , pdgidq_2       ,"pdgidq_2[3]/D"       );
-    
-    outTree_->Branch("ptq_3"        , ptq_3       ,"ptq_3[3]/D"       );
-    outTree_->Branch("etaq_3"        , etaq_3       ,"etaq_3[3]/D"       );
-    outTree_->Branch("phiq_3"        , phiq_3       ,"phiq_3[3]/D"       );
-    outTree_->Branch("eq_3"        , eq_3       ,"eq_3[4]/D"       );
-    outTree_->Branch("pdgidq_3"        , pdgidq_3       ,"pdgidq_3[3]/D"       );
-    
-    outTree_->Branch("gen_gra_m"        ,&gen_gra_m       ,"gen_gra_m/D"       );
-    outTree_->Branch("gen_gra_pt"        ,&gen_gra_pt       ,"gen_gra_pt/D"       );
-    outTree_->Branch("gen_gra_phi"        ,&gen_gra_phi       ,"gen_gra_phi/D"       );
 
-    outTree_->Branch("gen_gra_eta"        ,&gen_gra_eta       ,"gen_gra_eta/D"       );
-    outTree_->Branch("gen_rad_m"        ,&gen_rad_m       ,"gen_rad_m/D"       );
-    outTree_->Branch("gen_rad_pt"        ,&gen_rad_pt       ,"gen_rad_pt/D"       );
-    outTree_->Branch("gen_rad_phi"        ,&gen_rad_phi       ,"gen_rad_phi/D"       );
 
-    outTree_->Branch("gen_rad_eta"        ,&gen_rad_eta       ,"gen_rad_eta/D"       );
-    outTree_->Branch("gen_ele_pt"        ,&gen_ele_pt       ,"gen_ele_pt/D"       );
-    outTree_->Branch("gen_ele_eta"        ,&gen_ele_eta       ,"gen_ele_eta/D"       );
-    outTree_->Branch("gen_ele_phi"        ,&gen_ele_phi       ,"gen_ele_phi/D"       );
-    outTree_->Branch("gen_ele_e"        ,&gen_ele_e       ,"gen_ele_e/D"       );
-    outTree_->Branch("gen_mu_pt"        ,&gen_mu_pt       ,"gen_mu_pt/D"       );
-    outTree_->Branch("gen_mu_eta"        ,&gen_mu_eta       ,"gen_mu_eta/D"       );
-    outTree_->Branch("gen_mu_phi"        ,&gen_mu_phi       ,"gen_mu_phi/D"       );
-    outTree_->Branch("gen_mu_e"        ,&gen_mu_e       ,"gen_mu_e/D"       );
-    outTree_->Branch("gen_ele_pt_2"        ,&gen_ele_pt_2       ,"gen_ele_pt_2/D"       );
-    outTree_->Branch("gen_ele_eta_2"        ,&gen_ele_eta_2       ,"gen_ele_eta_2/D"       );
-    outTree_->Branch("gen_ele_phi_2"        ,&gen_ele_phi_2       ,"gen_ele_phi_2/D"       );
-    outTree_->Branch("gen_ele_e_2"        ,&gen_ele_e_2       ,"gen_ele_e_2/D"       );
-    outTree_->Branch("gen_mu_pt_2"        ,&gen_mu_pt_2       ,"gen_mu_pt_2/D"       );
-    outTree_->Branch("gen_mu_eta_2"        ,&gen_mu_eta_2       ,"gen_mu_eta_2/D"       );
-    outTree_->Branch("gen_mu_phi_2"        ,&gen_mu_phi_2       ,"gen_mu_phi_2/D"       );
-    outTree_->Branch("gen_mu_e_2"        ,&gen_mu_e_2       ,"gen_mu_e_2/D"       );
-    outTree_->Branch("gen_ele_pt_3"        ,&gen_ele_pt_3       ,"gen_ele_pt_3/D"       );
-    outTree_->Branch("gen_ele_eta_3"        ,&gen_ele_eta_3       ,"gen_ele_eta_3/D"       );
-    outTree_->Branch("gen_ele_phi_3"        ,&gen_ele_phi_3       ,"gen_ele_phi_3/D"       );
-    outTree_->Branch("gen_ele_e_3"        ,&gen_ele_e_3       ,"gen_ele_e_3/D"       );
-    outTree_->Branch("gen_mu_pt_3"        ,&gen_mu_pt_3       ,"gen_mu_pt_3/D"       );
-    outTree_->Branch("gen_mu_eta_3"        ,&gen_mu_eta_3       ,"gen_mu_eta_3/D"       );
-    outTree_->Branch("gen_mu_phi_3"        ,&gen_mu_phi_3       ,"gen_mu_phi_3/D"       );
-    outTree_->Branch("gen_mu_e_3"        ,&gen_mu_e_3       ,"gen_mu_e_3/D"       );
 
-    outTree_->Branch("gen_nele_pt"        ,&gen_nele_pt       ,"gen_nele_pt/D"       );
-    outTree_->Branch("gen_nele_eta"        ,&gen_nele_eta       ,"gen_nele_eta/D"       );
-    outTree_->Branch("gen_nele_phi"        ,&gen_nele_phi       ,"gen_nele_phi/D"       );
-    outTree_->Branch("gen_nele_e"        ,&gen_nele_e       ,"gen_nele_e/D"       );
-    outTree_->Branch("gen_nmu_pt"        ,&gen_nmu_pt       ,"gen_nmu_pt/D"       );
-    outTree_->Branch("gen_nmu_eta"        ,&gen_nmu_eta       ,"gen_nmu_eta/D"       );
-    outTree_->Branch("gen_nmu_phi"        ,&gen_nmu_phi       ,"gen_nmu_phi/D"       );
-    outTree_->Branch("gen_nmu_e"        ,&gen_nmu_e       ,"gen_nmu_e/D"       );
-    outTree_->Branch("gen_nele_pt_2"        ,&gen_nele_pt_2       ,"gen_nele_pt_2/D"       );
-    outTree_->Branch("gen_nele_eta_2"        ,&gen_nele_eta_2       ,"gen_nele_eta_2/D"       );
-    outTree_->Branch("gen_nele_phi_2"        ,&gen_nele_phi_2       ,"gen_nele_phi_2/D"       );
-    outTree_->Branch("gen_nele_e_2"        ,&gen_nele_e_2       ,"gen_nele_e_2/D"       );
-    outTree_->Branch("gen_nmu_pt_2"        ,&gen_nmu_pt_2       ,"gen_nmu_pt_2/D"       );
-    outTree_->Branch("gen_nmu_eta_2"        ,&gen_nmu_eta_2       ,"gen_nmu_eta_2/D"       );
-    outTree_->Branch("gen_nmu_phi_2"        ,&gen_nmu_phi_2       ,"gen_nmu_phi_2/D"       );
-    outTree_->Branch("gen_nmu_e_2"        ,&gen_nmu_e_2       ,"gen_nmu_e_2/D"       );
-    outTree_->Branch("gen_nele_pt_3"        ,&gen_nele_pt_3       ,"gen_nele_pt_3/D"       );
-    outTree_->Branch("gen_nele_eta_3"        ,&gen_nele_eta_3       ,"gen_nele_eta_3/D"       );
-    outTree_->Branch("gen_nele_phi_3"        ,&gen_nele_phi_3       ,"gen_nele_phi_3/D"       );
-    outTree_->Branch("gen_nele_e_3"        ,&gen_nele_e_3       ,"gen_nele_e_3/D"       );
-    outTree_->Branch("gen_nmu_pt_3"        ,&gen_nmu_pt_3       ,"gen_nmu_pt_3/D"       );
-    outTree_->Branch("gen_nmu_eta_3"        ,&gen_nmu_eta_3       ,"gen_nmu_eta_3/D"       );
-    outTree_->Branch("gen_nmu_phi_3"        ,&gen_nmu_phi_3       ,"gen_nmu_phi_3/D"       );
-    outTree_->Branch("gen_nmu_e_3"        ,&gen_nmu_e_3       ,"gen_nmu_e_3/D"       );
-
-    outTree_->Branch("gen_tau_pt"        ,&gen_tau_pt       ,"gen_tau_pt/D"       );
-    outTree_->Branch("gen_tau_eta"        ,&gen_tau_eta       ,"gen_tau_eta/D"       );
-    outTree_->Branch("gen_tau_phi"        ,&gen_tau_phi       ,"gen_tau_phi/D"       );
-    outTree_->Branch("gen_tau_e"        ,&gen_tau_e       ,"gen_tau_e/D"       );
-    outTree_->Branch("gen_tau_pt_2"        ,&gen_tau_pt_2       ,"gen_tau_pt_2/D"       );
-    outTree_->Branch("gen_tau_eta_2"        ,&gen_tau_eta_2       ,"gen_tau_eta_2/D"       );
-    outTree_->Branch("gen_tau_phi_2"        ,&gen_tau_phi_2       ,"gen_tau_phi_2/D"       );
-    outTree_->Branch("gen_tau_e_2"        ,&gen_tau_e_2       ,"gen_tau_e_2/D"       );
-    outTree_->Branch("gen_tau_pt_3"        ,&gen_tau_pt_3       ,"gen_tau_pt_3/D"       );
-    outTree_->Branch("gen_tau_eta_3"        ,&gen_tau_eta_3       ,"gen_tau_eta_3/D"       );
-    outTree_->Branch("gen_tau_phi_3"        ,&gen_tau_phi_3       ,"gen_tau_phi_3/D"       );
-    outTree_->Branch("gen_tau_e_3"        ,&gen_tau_e_3       ,"gen_tau_e_3/D"       );
-
-    outTree_->Branch("gen_ntau_pt"        ,&gen_ntau_pt       ,"gen_ntau_pt/D"       );
-    outTree_->Branch("gen_ntau_eta"        ,&gen_ntau_eta       ,"gen_ntau_eta/D"       );
-    outTree_->Branch("gen_ntau_phi"        ,&gen_ntau_phi       ,"gen_ntau_phi/D"       );
-    outTree_->Branch("gen_ntau_e"        ,&gen_ntau_e       ,"gen_ntau_e/D"       );
-    outTree_->Branch("gen_ntau_pt_2"        ,&gen_ntau_pt_2       ,"gen_ntau_pt_2/D"       );
-    outTree_->Branch("gen_ntau_eta_2"        ,&gen_ntau_eta_2       ,"gen_ntau_eta_2/D"       );
-    outTree_->Branch("gen_ntau_phi_2"        ,&gen_ntau_phi_2       ,"gen_ntau_phi_2/D"       );
-    outTree_->Branch("gen_ntau_e_2"        ,&gen_ntau_e_2       ,"gen_ntau_e_2/D"       );
-    outTree_->Branch("gen_ntau_pt_3"        ,&gen_ntau_pt_3       ,"gen_ntau_pt_3/D"       );
-    outTree_->Branch("gen_ntau_eta_3"        ,&gen_ntau_eta_3       ,"gen_ntau_eta_3/D"       );
-    outTree_->Branch("gen_ntau_phi_3"        ,&gen_ntau_phi_3       ,"gen_ntau_phi_3/D"       );
-    outTree_->Branch("gen_ntau_e_3"        ,&gen_ntau_e_3       ,"gen_ntau_e_3/D"       );
     
     outTree_->Branch("genmatch_ele_pt"        ,&genmatch_ele_pt       ,"genmatch_ele_pt/D"       );
     outTree_->Branch("genmatch_ele_eta"        ,&genmatch_ele_eta       ,"genmatch_ele_eta/D"       );
@@ -1196,34 +982,11 @@ VVVTreeMaker::VVVTreeMaker(const edm::ParameterSet& iConfig):
     outTree_->Branch("genantitop_phi"        ,&genantitop_phi       ,"genantitop_phi/D"       );
     outTree_->Branch("genantitop_mass"        ,&genantitop_mass       ,"genantitop_mass/D"       );
 
-    outTree_->Branch("ptGenVlep"        ,&ptGenVlep       ,"ptGenVlep/D"       );
-    outTree_->Branch("etaGenVlep"        ,&etaGenVlep       ,"etaGenVlep/D"       );
-    outTree_->Branch("phiGenVlep"        ,&phiGenVlep       ,"phiGenVlep/D"       );
-    outTree_->Branch("massGenVlep"        ,&massGenVlep       ,"massGenVlep/D"       );
-    outTree_->Branch("ptGenVhad"        ,&ptGenVhad       ,"ptGenVhad/D"       );
-    outTree_->Branch("etaGenVhad"        ,&etaGenVhad       ,"etaGenVhad/D"       );
-    outTree_->Branch("phiGenVhad"        ,&phiGenVhad       ,"phiGenVhad/D"       );
-    outTree_->Branch("massGenVhad"        ,&massGenVhad       ,"massGenVhad/D"       );
-    outTree_->Branch("ptGenVhad_2"        ,&ptGenVhad_2       ,"ptGenVhad_2/D"       );
-    outTree_->Branch("etaGenVhad_2"        ,&etaGenVhad_2       ,"etaGenVhad_2/D"       );
-    outTree_->Branch("phiGenVhad_2"        ,&phiGenVhad_2       ,"phiGenVhad_2/D"       );
-    outTree_->Branch("massGenVhad_2"        ,&massGenVhad_2       ,"massGenVhad_2/D"       );
-    outTree_->Branch("ptGenVhad_3"        ,&ptGenVhad_3       ,"ptGenVhad_3/D"       );
-    outTree_->Branch("etaGenVhad_3"        ,&etaGenVhad_3       ,"etaGenVhad_3/D"       );
-    outTree_->Branch("phiGenVhad_3"        ,&phiGenVhad_3       ,"phiGenVhad_3/D"       );
-    outTree_->Branch("massGenVhad_3"        ,&massGenVhad_3       ,"massGenVhad_3/D"       );
 
-    outTree_->Branch("ptGenV_2"        ,&ptGenV_2       ,"ptGenV_2/D"       );
-    outTree_->Branch("etaGenV_2"        ,&etaGenV_2       ,"etaGenV_2/D"       );
-    outTree_->Branch("phiGenV_2"        ,&phiGenV_2       ,"phiGenV_2/D"       );
-    outTree_->Branch("massGenV_2"        ,&massGenV_2       ,"massGenV_2/D"       );
-    outTree_->Branch("ptGenV_3"        ,&ptGenV_3       ,"ptGenV_3/D"       );
-    outTree_->Branch("etaGenV_3"        ,&etaGenV_3       ,"etaGenV_3/D"       );
-    outTree_->Branch("phiGenV_3"        ,&phiGenV_3       ,"phiGenV_3/D"       );
-    outTree_->Branch("massGenV_3"        ,&massGenV_3       ,"massGenV_3/D"       );
-    outTree_->Branch("status_1"           ,&status_1         ,"status_1/I"          );
-    outTree_->Branch("status_2"           ,&status_2         ,"status_2/I"          );
-    outTree_->Branch("status_3"           ,&status_3         ,"status_3/I"          );
+
+
+ 
+
     }
     //outTree_->Branch("");
 }
@@ -1456,24 +1219,8 @@ void VVVTreeMaker::setDummyValues() {
     delPhijetlep_2 =  -99;
     
     lep            = -99;
-    gen_gra_m      = -99;
-    gen_gra_pt     = -99;
-    gen_gra_phi     = -99;
 
-    gen_gra_eta     = -99;
-    gen_rad_m      = -99;
-    gen_rad_pt     = -99;
-    gen_rad_phi     = -99;
 
-    gen_rad_eta     = -99;
-    gen_ele_pt     = -99;
-    gen_ele_eta    = -99;
-    gen_ele_phi    = -99;
-    gen_ele_e      = -99;
-    gen_mu_pt     = -99;
-    gen_mu_eta    = -99;
-    gen_mu_phi    = -99;
-    gen_mu_e      = -99;
     genmatch_ele_pt     = -99;
     genmatch_ele_eta    = -99;
     genmatch_ele_phi    = -99;
@@ -1484,73 +1231,7 @@ void VVVTreeMaker::setDummyValues() {
     genmatch_mu_phi    = -99;
     genmatch_mu_e      = -99;
     genmatch_mu_dr      = -99;
-    gen_ele_pt_2     = -99;
-    gen_ele_eta_2    = -99;
-    gen_ele_phi_2    = -99;
-    gen_ele_e_2      = -99;
-    gen_mu_pt_2     = -99;
-    gen_mu_eta_2    = -99;
-    gen_mu_phi_2    = -99;
-    gen_mu_e_2      = -99;
-    gen_ele_pt_3     = -99;
-    gen_ele_eta_3    = -99;
-    gen_ele_phi_3    = -99;
-    gen_ele_e_3      = -99;
-    gen_mu_pt_3     = -99;
-    gen_mu_eta_3    = -99;
-    gen_mu_phi_3    = -99;
-    gen_mu_e_3      = -99;
-    
-    gen_tau_pt     = -99;
-    gen_tau_eta    = -99;
-    gen_tau_phi    = -99;
-    gen_tau_e      = -99;
-    gen_tau_pt_2     = -99;
-    gen_tau_eta_2    = -99;
-    gen_tau_phi_2    = -99;
-    gen_tau_e_2      = -99;
-    gen_tau_pt_3     = -99;
-    gen_tau_eta_3    = -99;
-    gen_tau_phi_3    = -99;
-    gen_tau_e_3      = -99;
 
-    gen_nele_pt     = -99;
-    gen_nele_eta    = -99;
-    gen_nele_phi    = -99;
-    gen_nele_e      = -99;
-    gen_nmu_pt     = -99;
-    gen_nmu_eta    = -99;
-    gen_nmu_phi    = -99;
-    gen_nmu_e      = -99;
-    gen_nele_pt_2     = -99;
-    gen_nele_eta_2    = -99;
-    gen_nele_phi_2    = -99;
-    gen_nele_e_2      = -99;
-    gen_nmu_pt_2     = -99;
-    gen_nmu_eta_2    = -99;
-    gen_nmu_phi_2    = -99;
-    gen_nmu_e_2      = -99;
-    gen_nele_pt_3     = -99;
-    gen_nele_eta_3    = -99;
-    gen_nele_phi_3    = -99;
-    gen_nele_e_3      = -99;
-    gen_nmu_pt_3     = -99;
-    gen_nmu_eta_3    = -99;
-    gen_nmu_phi_3    = -99;
-    gen_nmu_e_3      = -99;
-    
-    gen_ntau_pt     = -99;
-    gen_ntau_eta    = -99;
-    gen_ntau_phi    = -99;
-    gen_ntau_e      = -99;
-    gen_ntau_pt_2     = -99;
-    gen_ntau_eta_2    = -99;
-    gen_ntau_phi_2    = -99;
-    gen_ntau_e_2      = -99;
-    gen_ntau_pt_3     = -99;
-    gen_ntau_eta_3    = -99;
-    gen_ntau_phi_3    = -99;
-    gen_ntau_e_3      = -99;
 
     gentop_pt  = -99;
     gentop_eta  = -99;
@@ -1560,34 +1241,11 @@ void VVVTreeMaker::setDummyValues() {
     genantitop_eta  = -99;
     genantitop_phi  = -99;
     genantitop_mass  = -99;
-    ptGenVlep      = -99;
-    etaGenVlep      = -99;
-    phiGenVlep      = -99;
-    massGenVlep      = -99;
-    ptGenV_2      = -99;
-    etaGenV_2      = -99;
-    phiGenV_2      = -99;
-    massGenV_2      = -99;
-    ptGenV_3      = -99;
-    etaGenV_3      = -99;
-    phiGenV_3      = -99;
-    massGenV_3      = -99;
-    ptGenVhad      = -99;
-    etaGenVhad      = -99;
-    phiGenVhad      = -99;
-    massGenVhad      = -99;
-    ptGenVhad_2      = -99;
-    etaGenVhad_2      = -99;
-    phiGenVhad_2      = -99;
-    massGenVhad_2      = -99;
-    ptGenVhad_3      = -99;
-    etaGenVhad_3      = -99;
-    phiGenVhad_3      = -99;
-    massGenVhad_3      = -99;
+
+
+
   
-    status_1       =  -1;
-    status_2       =  -1;
-    status_3       =  -1;
+
 
     /*for(int j=0; j<882; j++){
         pweight[j]=0.0;
@@ -1642,16 +1300,9 @@ void VVVTreeMaker::setDummyValues() {
         jetAK8puppi_e1_JER_up[i] = -99;
         jetAK8puppi_e1_JER_down[i] = -99;
 
-        pttau[i] = -99 ;etatau[i] = -99 ;phitau[i] = -99 ;etau[i] = -99 ;pdgidtau[i] = -99 ;
-        pttau_2[i] = -99 ;etatau_2[i] = -99 ;phitau_2[i] = -99 ;etau_2[i] = -99 ;pdgidtau_2[i] = -99 ;
-        pttau_3[i] = -99 ;etatau_3[i] = -99 ;phitau_3[i] = -99 ;etau_3[i] = -99 ;pdgidtau_3[i] = -99 ;
+
     }
  
-    for(int i=0;i<3;i++){
-        ptq[i] = -99 ;etaq[i] = -99 ;phiq[i] = -99 ;eq[i] = -99 ;pdgidq[i] = -99 ;
-        ptq_2[i] = -99 ;etaq_2[i] = -99 ;phiq_2[i] = -99 ;eq_2[i] = -99 ;pdgidq_2[i] = -99 ;
-        ptq_3[i] = -99 ;etaq_3[i] = -99 ;phiq_3[i] = -99 ;eq_3[i] = -99 ;pdgidq_3[i] = -99 ;
-    }
 
     IDLoose = false;
     IDTight = false;
@@ -1793,25 +1444,8 @@ void VVVTreeMaker::setDummyValues() {
         ptgenwf[i]=-99;etagenwf[i]=-99;phigenwf[i]=-99;massgenwf[i]=-99;
         ptgenzf[i]=-99;etagenzf[i]=-99;phigenzf[i]=-99;massgenzf[i]=-99;
     }
-    for(int i=0;i<10;i++){
-        ptgengl[i]=-99;etagengl[i]=-99;phigengl[i]=-99;egengl[i]=-99;
-        ptgengf[i]=-99;etagengf[i]=-99;phigengf[i]=-99;egengf[i]=-99;
-        mothergengf[i]=-99;mmothergengf[i]=-99;
-    }
-    for(int i=0;i<5;i++){
-        ptgenq1l[i]=-99;etagenq1l[i]=-99;phigenq1l[i]=-99;egenq1l[i]=-99;
-        ptgenq1f[i]=-99;etagenq1f[i]=-99;phigenq1f[i]=-99;egenq1f[i]=-99;
-        ptgenq2l[i]=-99;etagenq2l[i]=-99;phigenq2l[i]=-99;egenq2l[i]=-99;
-        ptgenq2f[i]=-99;etagenq2f[i]=-99;phigenq2f[i]=-99;egenq2f[i]=-99;
-        ptgenq3l[i]=-99;etagenq3l[i]=-99;phigenq3l[i]=-99;egenq3l[i]=-99;
-        ptgenq3f[i]=-99;etagenq3f[i]=-99;phigenq3f[i]=-99;egenq3f[i]=-99;
-        ptgenq4l[i]=-99;etagenq4l[i]=-99;phigenq4l[i]=-99;egenq4l[i]=-99;
-        ptgenq4f[i]=-99;etagenq4f[i]=-99;phigenq4f[i]=-99;egenq4f[i]=-99;
-        ptgenq5l[i]=-99;etagenq5l[i]=-99;phigenq5l[i]=-99;egenq5l[i]=-99;
-        ptgenq5f[i]=-99;etagenq5f[i]=-99;phigenq5f[i]=-99;egenq5f[i]=-99;
-        mmothergenq1f[i]=-99;mmothergenq2f[i]=-99;mmothergenq3f[i]=-99;mmothergenq4f[i]=-99;mmothergenq5f[i]=-99;
 
-    }
+
     gent_b_pt=-99;gent_b_phi=-99;gent_b_eta=-99;gent_b_mass=-99;
     genantit_b_pt=-99;genantit_b_phi=-99;genantit_b_eta=-99;genantit_b_mass=-99;
     gent_w_pt=-99;gent_w_phi=-99;gent_w_eta=-99;gent_w_mass=-99;
