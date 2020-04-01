@@ -4,16 +4,12 @@ process = cms.Process( "TEST" )
 #process.options = cms.untracked.PSet(wantSummary = cms.untracked.bool(True))
 process.options = cms.untracked.PSet(wantSummary = cms.untracked.bool(True),allowUnscheduled=cms.untracked.bool(True))
 #,
-#				     SkipEvent = cms.untracked.vstring('ProductNotFound'))
-filterMode = False # True                
+#				     SkipEvent = cms.untracked.vstring('ProductNotFound'))             
  
 ######## Sequence settings ##########
 corrJetsOnTheFly = True
 runOnMC  = True
 runOnSig = False
-DOHLTFILTERS = True
-#useJSON = not (runOnMC)
-#JSONfile = 'Cert_246908-258750_13TeV_PromptReco_Collisions15_25ns_JSON.txt'
 #****************************************************************************************************#
 
 #process.load('Configuration/StandardSequences/FrontierConditions_GlobalTag_cff')
@@ -29,7 +25,7 @@ hltFiltersProcessName = 'RECO'
 if runOnMC:
    hltFiltersProcessName = 'PAT' #'RECO'
 
-#if DOHLTFILTERS and not(runOnMC):
+
 process.load('CommonTools.RecoAlgos.HBHENoiseFilterResultProducer_cfi')
 process.HBHENoiseFilterResultProducer.minZeros = cms.int32(99999)
 process.HBHENoiseFilterResultProducer.IgnoreTS4TS5ifJetInLowBVRegion=cms.bool(False)
@@ -45,7 +41,6 @@ process.ApplyBaselineHBHEIsoNoiseFilter = cms.EDFilter('BooleanFlagFilter',
                                                        )
 process.load('RecoMET.METFilters.ecalBadCalibFilter_cfi')
 
-from PhysicsTools.PatUtils.l1ECALPrefiringWeightProducer_cfi import l1ECALPrefiringWeightProducer
 baddetEcallist = cms.vuint32(
     [872439604,872422825,872420274,872423218,
      872423215,872416066,872435036,872439336,
@@ -67,15 +62,7 @@ process.ecalBadCalibReducedMINIAODFilter = cms.EDFilter(
     debug = cms.bool(False)
     )
 
-######### read JSON file for data ##########					                                                             
-'''if not(runOnMC) and useJSON:
 
-  import FWCore.PythonUtilities.LumiList as LumiList
-  import FWCore.ParameterSet.Types as CfgTypes
-  process.source.lumisToProcess = CfgTypes.untracked(CfgTypes.VLuminosityBlockRange())
-  myLumis = LumiList.LumiList(filename = JSONfile).getCMSSWString().split(',')
-  process.source.lumisToProcess.extend(myLumis) 
-'''
 # DeepAK8: set up TransientTrackBuilder
 process.load('Configuration.StandardSequences.MagneticField_cff')
 process.TransientTrackBuilderESProducer = cms.ESProducer("TransientTrackBuilderESProducer",
@@ -131,8 +118,6 @@ updateJetCollection(
 if option == 'RECO':
     process.goodMuons.src = "slimmedMuons"
     process.goodElectrons.src = "slimmedElectrons"
-    process.goodJets.src = "slimmedJetsAK8"
-#    process.goodJets.src = "selectedPatJetsAK8"
     process.Wtoenu.MET  = "slimmedMETs"
     process.Wtomunu.MET = "slimmedMETs"
     process.goodPuppiAK4.src = "slimmedJets"
@@ -144,43 +129,13 @@ if option == 'RECO':
 	met_recalculation = "cleanPuppiAK4"
 
 
-process.goodOfflinePrimaryVertex = cms.EDFilter("VertexSelector",
-                                       src = cms.InputTag("offlineSlimmedPrimaryVertices"),
-                                       cut = cms.string("chi2!=0 && ndof >= 4.0 && abs(z) <= 24.0 && abs(position.Rho) <= 2.0"),
-                                       filter = cms.bool(True)
-                                       )
-if option == 'RECO':
-    process.hadronicV.cut = ' '
-if option == 'GEN':
-    process.hadronicV.cut = ' '
-WBOSONCUT = "pt > 200.0"
 
-process.leptonicVSelector = cms.EDFilter("CandViewSelector",
-                                       src = cms.InputTag("leptonicV"),
-                                       cut = cms.string( WBOSONCUT ),
-                                       filter = cms.bool(True)
-                                       )
-process.leptonicVFilter = cms.EDFilter("CandViewCountFilter",
-                                       src = cms.InputTag("leptonicV"),
-                                       minNumber = cms.uint32(1),
-                                       #filter = cms.bool(True)
-                                       )
-process.hadronicVFilter = cms.EDFilter("CandViewCountFilter",
-                                       src = cms.InputTag("hadronicV"),
-                                       minNumber = cms.uint32(1),
-                                       #filter = cms.bool(True)
-                                       )
-process.graviton = cms.EDProducer("CandViewCombiner",
-                                       decay = cms.string("leptonicV hadronicV"),
-                                       checkCharge = cms.bool(False),
-                                       cut = cms.string("mass > 180"),
-                                       roles = cms.vstring('leptonicV', 'hadronicV'),
-                                       )
-process.gravitonFilter =  cms.EDFilter("CandViewCountFilter",
-                                       src = cms.InputTag("graviton"),
-                                       minNumber = cms.uint32(1),
-                                       #filter = cms.bool(True)
-                                       )
+
+
+
+
+
+
 from PhysicsTools.SelectorUtils.tools.vid_id_tools import *
 switchOnVIDElectronIdProducer(process, DataFormat.MiniAOD)
 my_id_modules = ['RecoEgamma.ElectronIdentification.Identification.heepElectronID_HEEPV70_cff']
@@ -189,31 +144,15 @@ for idmod in my_id_modules:
 
 process.leptonSequence = cms.Sequence(process.muSequence +
                                       process.egmGsfElectronIDSequence*process.eleSequence +
-                                      process.leptonicVSequence +
-                                      process.leptonicVSelector +
-                                      process.leptonicVFilter )
+                                      process.leptonicVSequence )
 
 process.jetSequence = cms.Sequence(
-                                   process.fatJetsSequence +
-                                   process.fatPuppiSequence+
-                                   process.hadronicV +
-                                   process.hadronicVFilter)
-
-process.gravitonSequence = cms.Sequence(process.graviton +
-                                        process.gravitonFilter)
+                                   process.fatPuppiSequence)
 
 
-if filterMode == False:
-    process.goodOfflinePrimaryVertex.filter = False
-    process.Wtomunu.cut = ''
-    process.Wtoenu.cut = ''
-    process.leptonicVSelector.filter = False
-    process.leptonicVSelector.cut = ''
-    process.hadronicV.cut = ''
-    process.graviton.cut = ''
-    process.leptonicVFilter.minNumber = 0
-    process.hadronicVFilter.minNumber = 0
-    process.gravitonFilter.minNumber = 0
+
+
+
 
 process.load('RecoMET.METFilters.BadPFMuonFilter_cfi')
 process.load("RecoMET.METFilters.BadChargedCandidateFilter_cfi")
@@ -224,35 +163,14 @@ process.BadChargedCandidateFilter.PFCandidates = cms.InputTag("packedPFCandidate
 process.metfilterSequence = cms.Sequence(process.BadPFMuonFilter+process.BadChargedCandidateFilter)
 
 ######### JEC ########
-METS = "slimmedMETs"
-jetsAK8 = "slimmedJetsAK8"
-jetsAK8pruned = "slimmedJetsAK8"
-jetsAK8softdrop = "slimmedJetsAK8"
+
 jetsAK8puppi = "cleanPuppi"
  
 if runOnMC:
-   jecLevelsAK8chs = [
-                                   'Summer16_07Aug2017_V11_MC_L1FastJet_AK8PFchs.txt',
-                                   'Summer16_07Aug2017_V11_MC_L2Relative_AK8PFchs.txt',
-                                   'Summer16_07Aug2017_V11_MC_L3Absolute_AK8PFchs.txt'
-     ]
-   jecLevelsAK8chsGroomed = [
-                                   'Summer16_07Aug2017_V11_MC_L2Relative_AK8PFchs.txt',
-                                   'Summer16_07Aug2017_V11_MC_L3Absolute_AK8PFchs.txt'
-     ]
    jecLevelsAK8puppi = [
                                    'Summer16_07Aug2017_V11_MC_L1FastJet_AK8PFPuppi.txt',
                                    'Summer16_07Aug2017_V11_MC_L2Relative_AK8PFPuppi.txt',
                                    'Summer16_07Aug2017_V11_MC_L3Absolute_AK8PFPuppi.txt'
-     ]
-   jecLevelsAK8puppiGroomed = [
-                                   'Summer16_07Aug2017_V11_MC_L2Relative_AK8PFPuppi.txt',
-                                   'Summer16_07Aug2017_V11_MC_L3Absolute_AK8PFPuppi.txt'
-     ]
-   BjecLevelsAK4chs = [
-                                   'Summer16_07Aug2017_V11_MC_L1FastJet_AK4PFPuppi.txt',
-                                   'Summer16_07Aug2017_V11_MC_L2Relative_AK4PFPuppi.txt',
-                                   'Summer16_07Aug2017_V11_MC_L3Absolute_AK4PFPuppi.txt'
      ]
    jecLevelsAK4chs = [
                                    'Summer16_07Aug2017_V11_MC_L1FastJet_AK4PFchs.txt',
@@ -260,34 +178,11 @@ if runOnMC:
                                    'Summer16_07Aug2017_V11_MC_L3Absolute_AK4PFchs.txt'
     ]
 else:
-   jecLevelsAK8chs = [
-                                   'Summer16_07Aug2017BCD_V11_DATA_L1FastJet_AK8PFchs.txt',
-                                   'Summer16_07Aug2017BCD_V11_DATA_L2Relative_AK8PFchs.txt',
-                                   'Summer16_07Aug2017BCD_V11_DATA_L3Absolute_AK8PFchs.txt',
-                                   'Summer16_07Aug2017BCD_V11_DATA_L2L3Residual_AK8PFchs.txt'
-     ]
-   jecLevelsAK8chsGroomed = [
-                                   'Summer16_07Aug2017BCD_V11_DATA_L2Relative_AK8PFchs.txt',
-                                   'Summer16_07Aug2017BCD_V11_DATA_L3Absolute_AK8PFchs.txt',
-                                   'Summer16_07Aug2017BCD_V11_DATA_L2L3Residual_AK8PFchs.txt'
-     ]
    jecLevelsAK8puppi = [
                                    'Summer16_07Aug2017BCD_V11_DATA_L1FastJet_AK8PFPuppi.txt',
                                    'Summer16_07Aug2017BCD_V11_DATA_L2Relative_AK8PFPuppi.txt',
                                    'Summer16_07Aug2017BCD_V11_DATA_L3Absolute_AK8PFPuppi.txt',
                                    'Summer16_07Aug2017BCD_V11_DATA_L2L3Residual_AK8PFPuppi.txt'
-     ]
-   jecLevelsAK8puppiGroomed = [
-                                   'Summer16_07Aug2017BCD_V11_DATA_L2Relative_AK8PFPuppi.txt',
-                                   'Summer16_07Aug2017BCD_V11_DATA_L3Absolute_AK8PFPuppi.txt',
-                                   'Summer16_07Aug2017BCD_V11_DATA_L2L3Residual_AK8PFPuppi.txt'
-     ]
-   BjecLevelsAK4chs = [
-                                   'Summer16_07Aug2017BCD_V11_DATA_L1FastJet_AK4PFPuppi.txt',
-                                   'Summer16_07Aug2017BCD_V11_DATA_L2Relative_AK4PFPuppi.txt',
-                                   'Summer16_07Aug2017BCD_V11_DATA_L3Absolute_AK4PFPuppi.txt',
-                                   'Summer16_07Aug2017BCD_V11_DATA_L2L3Residual_AK4PFPuppi.txt'
-
      ]
    jecLevelsAK4chs = [
                                    'Summer16_07Aug2017BCD_V11_DATA_L1FastJet_AK4PFPuppi.txt',
@@ -349,19 +244,14 @@ if runOnMC:
 	                                        jecAK4chsPayloadNames_JetUserData = cms.vstring( jecLevelsAK4chs ),
 	                                        vertex_JetUserData = cms.InputTag("offlineSlimmedPrimaryVertices"),
 	                                        )
-
-#L1Prefiring
+#L1 Prefiring
 from PhysicsTools.PatUtils.l1ECALPrefiringWeightProducer_cfi import l1ECALPrefiringWeightProducer
 process.prefiringweight = l1ECALPrefiringWeightProducer.clone(
-    DataEra = cms.string("2016BtoH"), #Use 2016BtoH for 2016
+    DataEra = cms.string("2016BtoH"),   #("2016BtoH"), #Use 2016BtoH for 2016
     UseJetEMPt = cms.bool(False),
     PrefiringRateSystematicUncty = cms.double(0.2),
     SkipWarnings = False)
-
-process.treeDumper = cms.EDAnalyzer("EDBRTreeMaker",
-                                    originalNEvents = cms.int32(1),
-                                    crossSectionPb = cms.double(1),
-                                    targetLumiInvPb = cms.double(1.0),
+process.treeDumper = cms.EDAnalyzer("VVVTreeMaker",
                                     EDBRChannel = cms.string("VW_CHANNEL"),
                                     lhe =  cms.InputTag("externalLHEProducer"),
                                     isGen = cms.bool(False),
@@ -372,34 +262,18 @@ process.treeDumper = cms.EDAnalyzer("EDBRTreeMaker",
                                     genSrc =  cms.InputTag("prunedGenParticles"),
                                     pileup  =   cms.InputTag("slimmedAddPileupInfo"),
                                     leptonicVSrc = cms.InputTag("leptonicV"),
-                                    gravitonSrc = cms.InputTag("graviton"),
                                     t1jetSrc_userak4 = cms.InputTag(met_recalculation),
                                     looseMuonSrc = cms.InputTag("looseMuons"),
                                     looseElectronSrc = cms.InputTag("looseElectrons"),
                                     goodMuSrc = cms.InputTag("goodMuons"),
                                     MuSrc = cms.InputTag("slimmedMuons"),
                                     EleSrc = cms.InputTag("slimmedElectrons"),
-                                    t1muSrc = cms.InputTag("slimmedMuons"),
                                     metSrc = cms.InputTag("slimmedMETs"),
-                                    mets = cms.InputTag(METS),
-                                    #ak4jetsSrc = cms.InputTag("cleanAK4Jets"), 
                                     ak4jetsSrc = cms.InputTag("cleanPuppiAK4"), 
-                                    hadronicVSrc = cms.InputTag("hadronicV"),
-                                    hadronicVSrc_raw = cms.InputTag("slimmedJetsAK8"),
-                                    hadronicVSoftDropSrc = cms.InputTag("selectedPatJetsAK8SoftDropPacked"),
                                     jets = cms.InputTag("slimmedJets"),
-                                    fatjets = cms.InputTag(jetsAK8),
-                                    ak8JetSrc = cms.InputTag(jetsAK8),
-                                    prunedjets = cms.InputTag(jetsAK8pruned),
-                                    softdropjets = cms.InputTag(jetsAK8softdrop),
                                     puppijets = cms.InputTag(jetsAK8puppi),
-                                    jecAK8chsPayloadNames = cms.vstring( jecLevelsAK8chs ),
-                                    jecAK8chsPayloadNamesGroomed = cms.vstring( jecLevelsAK8chsGroomed ),
-                                    jecAK4chsPayloadNames = cms.vstring( jecLevelsAK4chs ),
-                                    BjecAK4chsPayloadNames = cms.vstring( BjecLevelsAK4chs ),
-					
+                                    jecAK4chsPayloadNames = cms.vstring( jecLevelsAK4chs ),					
                                     jecAK8puppiPayloadNames = cms.vstring( jecLevelsAK8puppi ),
-                                    jecAK8puppiPayloadNamesGroomed = cms.vstring( jecLevelsAK8puppiGroomed ),
                                     jecpath = cms.string(''),
                                     rho = cms.InputTag("fixedGridRhoFastjetAll"),
                                     electronIDs = cms.InputTag("heepElectronID-HEEPV50-CSA14-25ns"),
@@ -411,7 +285,6 @@ process.treeDumper = cms.EDAnalyzer("EDBRTreeMaker",
                                     elPaths3     = cms.vstring("HLT_Ele45_WPLoose_Gsf_v*"),
                                     elPaths4     = cms.vstring("HLT_Ele115_CaloIdVT_GsfTrkIdT_v*"),#("HLT_Ele35_WPLoose_Gsf_v*"),#3
                                     elPaths5     = cms.vstring("HLT_Photon175_v*"),#("HLT_Ele35_WPLoose_Gsf_v*"),
-                                    #elPaths5     = cms.vstring("HLT_Ele25_WPTight_Gsf_v*"),
                                     elPaths6     = cms.vstring("HLT_Ele38_WPTight_Gsf_v*"),#("HLT_Ele25_eta2p1_WPLoose_Gsf_v*"),
                                     elPaths7     = cms.vstring("HLT_Ele50_CaloIdVT_GsfTrkIdT_PFJet165_v*"),#("HLT_Ele25_eta2p1_WPTight_Gsf_v*"),#4
                                     elPaths8     = cms.vstring("HLT_Ele27_WPTight_Gsf_v*"),
@@ -436,6 +309,7 @@ process.treeDumper = cms.EDAnalyzer("EDBRTreeMaker",
                                     noiseFilterSelection_eeBadScFilter = cms.string('Flag_eeBadScFilter'),
                                     noiseFilterSelection_badMuon = cms.InputTag('BadPFMuonFilter'),
                                     noiseFilterSelection_badChargedHadron = cms.InputTag('BadChargedCandidateFilter'),
+                                    CoutOrNot  = cms.bool(True)
                                     )
 
 
@@ -447,16 +321,11 @@ if runOnMC:
 	process.analysis = cms.Path(process.JetUserDataak4 +
                             process.JetUserData +
 			    process.leptonSequence +
-                            #process.substructureSequence+
-                            #process.redoPatJets+
-                            #process.redoPrunedPatJets+
-                            #process.redoSoftDropPatJets+
                             process.HBHENoiseFilterResultProducer+
                             process.ApplyBaselineHBHENoiseFilter+
                             process.ApplyBaselineHBHEIsoNoiseFilter+
                             process.jetSequence +
                             process.metfilterSequence +
-                            process.gravitonSequence +
                             process.ecalBadCalibReducedMINIAODFilter*process.prefiringweight*process.treeDumper)
 
 if not runOnMC:
@@ -467,25 +336,19 @@ if not runOnMC:
                             process.ApplyBaselineHBHEIsoNoiseFilter+
                             process.jetSequence +
                             process.metfilterSequence +
-                            process.gravitonSequence +
                             process.ecalBadCalibReducedMINIAODFilter*process.prefiringweight*process.treeDumper)
 
-if option=='RECO':
-    process.analysis.replace(process.leptonSequence, process.goodOfflinePrimaryVertex + process.leptonSequence)
+
 
 process.load("ExoDiBosonResonances.EDBRCommon.data.RSGravitonToWW_kMpl01_M_1000_Tune4C_13TeV_pythia8")
 #process.source.inputCommands = ['keep *','drop *_isolatedTracks_*_*']
 process.source.fileNames = [
-#'/store/mc/RunIIFall17MiniAODv2/WJetsToLNu_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8/MINIAODSIM/PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/70000/FC761907-BF54-E811-9076-0242AC130002.root',
-#'/store/mc/RunIIFall17MiniAODv2/WZTo3LNu_3Jets_MLL-50_TuneCP5_13TeV-madgraphMLM-pythia8/MINIAODSIM/PU2017_12Apr2018_94X_mc2017_realistic_v14-v2/70000/F2EF406C-3F65-E811-AA59-0025905C43EC.root'
-#'/store/mc/RunIIFall17MiniAODv2/WWToLNuQQ_NNPDF31_TuneCP5_PSweights_13TeV-powheg-pythia8/MINIAODSIM/PU2017_12Apr2018_94X_mc2017_realistic_v14_ext1-v1/70000/FE6DE59D-2687-E811-9BAE-FA163ED7629D.root'
-#'/store/mc/RunIISummer16MiniAODv3/WkkToWRadionToWWW_M5000-R0-7-TuneCUETP8M1_13TeV-madgraph-pythia/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/280000/DCB4F5A0-753F-EA11-90C3-509A4C8339DE.root'
-'/WWToLNuQQ_13TeV-powheg/RunIISummer16MiniAODv3-PUMoriond17_94X_mcRun2_asymptotic_v3_ext1-v2/MINIAODSIM'
+'/store/mc/RunIISummer16MiniAODv3/WkkToWRadionToWWW_M5000-R0-7-TuneCUETP8M1_13TeV-madgraph-pythia/MINIAODSIM/PUMoriond17_94X_mcRun2_asymptotic_v3-v1/280000/DCB4F5A0-753F-EA11-90C3-509A4C8339DE.root'
 ]
 
-process.maxEvents.input = 1000
+process.maxEvents.input = 100
 process.load("FWCore.MessageLogger.MessageLogger_cfi")
-process.MessageLogger.cerr.FwkReport.reportEvery = 1000000
+process.MessageLogger.cerr.FwkReport.reportEvery = 1
 process.MessageLogger.cerr.FwkReport.limit = 99999999
 print "hh"
 process.TFileService = cms.Service("TFileService",
