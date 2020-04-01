@@ -1,6 +1,129 @@
-#ifndef _VVVHLTInfo_
-#define _VVVHLTInfo_
+#ifndef _EDBR_HLT_
+#define _EDBR_HLT_
 
+// HLT
+
+
+void
+VVVTreeMaker::HLTStore( edm::Event const & iEvent ){
+
+//    Handle<TriggerResults> trigRes;
+    edm::Handle<edm::TriggerResults> trigRes;
+    iEvent.getByToken(hltToken_, trigRes);
+
+
+    int xtemp1=0;
+    for (size_t i=0; i<elPaths1.size();i++) {
+        xtemp1 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths1[i]));
+        if(HLT_Ele1<xtemp1) HLT_Ele1=xtemp1;
+    }
+    int xtemp2=0;
+    for (size_t i=0; i<elPaths2.size();i++) {
+        xtemp2 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths2[i]));
+        if(HLT_Ele2<xtemp2) HLT_Ele2=xtemp2;
+    }
+    int xtemp3=0;
+    for (size_t i=0; i<elPaths3.size();i++) {
+        xtemp3 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths3[i]));
+        if(HLT_Ele3<xtemp3) HLT_Ele3=xtemp3;
+    }
+    int xtemp4=0;
+    for (size_t i=0; i<elPaths4.size();i++) {
+        xtemp4 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths4[i]));
+        if(HLT_Ele4<xtemp4) HLT_Ele4=xtemp4;
+    }
+    int xtemp5=0;
+    for (size_t i=0; i<elPaths5.size();i++) {
+        xtemp5 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths5[i]));
+        if(HLT_Ele5<xtemp5) HLT_Ele5=xtemp5;
+    }
+    int xtemp6=0;
+    for (size_t i=0; i<elPaths6.size();i++) {
+        xtemp6 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths6[i]));
+        if(HLT_Ele6<xtemp6) HLT_Ele6=xtemp6;
+    }
+    int xtemp7=0;
+    for (size_t i=0; i<elPaths7.size();i++) {
+        xtemp7 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths7[i]));
+        if(HLT_Ele7<xtemp7) HLT_Ele7=xtemp7;
+    }
+    int xtemp8=0;
+    for (size_t i=0; i<elPaths8.size();i++) {
+        xtemp8 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths8[i]));
+        if(HLT_Ele8<xtemp8) HLT_Ele8=xtemp8;
+    }
+
+    int mtemp1=0;
+    for (size_t i=0; i<muPaths1.size();i++) {
+        mtemp1 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths1[i]));
+        if(HLT_Mu1<mtemp1) HLT_Mu1=mtemp1;
+    }
+    int mtemp2=0;
+    for (size_t i=0; i<muPaths2.size();i++) {
+        mtemp2 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths2[i]));
+        if(HLT_Mu2<mtemp2) HLT_Mu2=mtemp2;
+    }
+    int mtemp3=0;
+    for (size_t i=0; i<muPaths3.size();i++) {
+        mtemp3 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths3[i]));
+        if(HLT_Mu3<mtemp3) HLT_Mu3=mtemp3;
+    }
+    int mtemp4=0;
+    for (size_t i=0; i<muPaths4.size();i++) {
+        mtemp4 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths4[i]));
+        if(HLT_Mu4<mtemp4) HLT_Mu4=mtemp4;
+    }
+    int mtemp5=0;
+    for (size_t i=0; i<muPaths5.size();i++) {
+        mtemp5 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths5[i]));
+        if(HLT_Mu5<mtemp5) HLT_Mu5=mtemp5;
+    }
+    int mtemp6=0;
+    for (size_t i=0; i<muPaths6.size();i++) {
+        mtemp6 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths6[i]));
+        if(HLT_Mu6<mtemp6) HLT_Mu6=mtemp6;
+    }
+    int mtemp7=0;
+    for (size_t i=0; i<muPaths7.size();i++) {
+        mtemp7 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths7[i]));
+        if(HLT_Mu7<mtemp7) HLT_Mu7=mtemp7;
+    }
+    int mtemp8=0;
+    for (size_t i=0; i<muPaths8.size();i++) {
+        mtemp8 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths8[i]));
+        if(HLT_Mu8<mtemp8) HLT_Mu8=mtemp8;
+    }
+    int mtemp9=0;
+    for (size_t i=0; i<muPaths9.size();i++) {
+        mtemp9 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths9[i]));
+        if(HLT_Mu9<mtemp9) HLT_Mu9=mtemp9;
+    }
+    int mtemp10=0;
+    for (size_t i=0; i<muPaths10.size();i++) {
+        mtemp10 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths10[i]));
+        if(HLT_Mu10<mtemp10) HLT_Mu10=mtemp10;
+    }
+    int mtemp11=0;
+    for (size_t i=0; i<muPaths11.size();i++) {
+        mtemp11 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths11[i]));
+        if(HLT_Mu11<mtemp11) HLT_Mu11=mtemp11;
+    }
+    int mtemp12=0;
+    for (size_t i=0; i<muPaths12.size();i++) {
+        mtemp12 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths12[i]));
+        if(HLT_Mu12<mtemp12) HLT_Mu12=mtemp12;
+    }
+
+}
+
+
+// ------------ method called once each job just before starting event loop  ------------
+void 
+VVVTreeMaker::beginJob()
+{
+}
+
+// ------------ method called once each job just after ending the event loop  ------------
 void VVVTreeMaker::beginRun(const edm::Run& iRun, const edm::EventSetup& iSetup)
 {
 
@@ -243,118 +366,5 @@ void VVVTreeMaker::beginRun(const edm::Run& iRun, const edm::EventSetup& iSetup)
     std::cout<<"\n*********************************************\n\n";
 
 }
-
-void
-VVVTreeMaker::HLTStore( edm::Event const & iEvent ){
-
-//    Handle<TriggerResults> trigRes;
-    edm::Handle<edm::TriggerResults> trigRes;
-    iEvent.getByToken(hltToken_, trigRes);
-
-
-    int xtemp1=0;
-    for (size_t i=0; i<elPaths1.size();i++) {
-        xtemp1 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths1[i]));
-        if(HLT_Ele1<xtemp1) HLT_Ele1=xtemp1;
-    }
-    int xtemp2=0;
-    for (size_t i=0; i<elPaths2.size();i++) {
-        xtemp2 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths2[i]));
-        if(HLT_Ele2<xtemp2) HLT_Ele2=xtemp2;
-    }
-    int xtemp3=0;
-    for (size_t i=0; i<elPaths3.size();i++) {
-        xtemp3 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths3[i]));
-        if(HLT_Ele3<xtemp3) HLT_Ele3=xtemp3;
-    }
-    int xtemp4=0;
-    for (size_t i=0; i<elPaths4.size();i++) {
-        xtemp4 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths4[i]));
-        if(HLT_Ele4<xtemp4) HLT_Ele4=xtemp4;
-    }
-    int xtemp5=0;
-    for (size_t i=0; i<elPaths5.size();i++) {
-        xtemp5 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths5[i]));
-        if(HLT_Ele5<xtemp5) HLT_Ele5=xtemp5;
-    }
-    int xtemp6=0;
-    for (size_t i=0; i<elPaths6.size();i++) {
-        xtemp6 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths6[i]));
-        if(HLT_Ele6<xtemp6) HLT_Ele6=xtemp6;
-    }
-    int xtemp7=0;
-    for (size_t i=0; i<elPaths7.size();i++) {
-        xtemp7 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths7[i]));
-        if(HLT_Ele7<xtemp7) HLT_Ele7=xtemp7;
-    }
-    int xtemp8=0;
-    for (size_t i=0; i<elPaths8.size();i++) {
-        xtemp8 = (int)trigRes->accept(hltConfig.triggerIndex(elPaths8[i]));
-        if(HLT_Ele8<xtemp8) HLT_Ele8=xtemp8;
-    }
-
-    int mtemp1=0;
-    for (size_t i=0; i<muPaths1.size();i++) {
-        mtemp1 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths1[i]));
-        if(HLT_Mu1<mtemp1) HLT_Mu1=mtemp1;
-    }
-    int mtemp2=0;
-    for (size_t i=0; i<muPaths2.size();i++) {
-        mtemp2 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths2[i]));
-        if(HLT_Mu2<mtemp2) HLT_Mu2=mtemp2;
-    }
-    int mtemp3=0;
-    for (size_t i=0; i<muPaths3.size();i++) {
-        mtemp3 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths3[i]));
-        if(HLT_Mu3<mtemp3) HLT_Mu3=mtemp3;
-    }
-    int mtemp4=0;
-    for (size_t i=0; i<muPaths4.size();i++) {
-        mtemp4 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths4[i]));
-        if(HLT_Mu4<mtemp4) HLT_Mu4=mtemp4;
-    }
-    int mtemp5=0;
-    for (size_t i=0; i<muPaths5.size();i++) {
-        mtemp5 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths5[i]));
-        if(HLT_Mu5<mtemp5) HLT_Mu5=mtemp5;
-    }
-    int mtemp6=0;
-    for (size_t i=0; i<muPaths6.size();i++) {
-        mtemp6 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths6[i]));
-        if(HLT_Mu6<mtemp6) HLT_Mu6=mtemp6;
-    }
-    int mtemp7=0;
-    for (size_t i=0; i<muPaths7.size();i++) {
-        mtemp7 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths7[i]));
-        if(HLT_Mu7<mtemp7) HLT_Mu7=mtemp7;
-    }
-    int mtemp8=0;
-    for (size_t i=0; i<muPaths8.size();i++) {
-        mtemp8 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths8[i]));
-        if(HLT_Mu8<mtemp8) HLT_Mu8=mtemp8;
-    }
-    int mtemp9=0;
-    for (size_t i=0; i<muPaths9.size();i++) {
-        mtemp9 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths9[i]));
-        if(HLT_Mu9<mtemp9) HLT_Mu9=mtemp9;
-    }
-    int mtemp10=0;
-    for (size_t i=0; i<muPaths10.size();i++) {
-        mtemp10 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths10[i]));
-        if(HLT_Mu10<mtemp10) HLT_Mu10=mtemp10;
-    }
-    int mtemp11=0;
-    for (size_t i=0; i<muPaths11.size();i++) {
-        mtemp11 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths11[i]));
-        if(HLT_Mu11<mtemp11) HLT_Mu11=mtemp11;
-    }
-    int mtemp12=0;
-    for (size_t i=0; i<muPaths12.size();i++) {
-        mtemp12 = (int)trigRes->accept(hltConfig.triggerIndex(muPaths12[i]));
-        if(HLT_Mu12<mtemp12) HLT_Mu12=mtemp12;
-    }
-
-}
-
 
 #endif
